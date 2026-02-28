@@ -2248,8 +2248,11 @@ footer {
     }
 
     .hero-headline {
-        font-size: clamp(32px, 10vw, 44px) !important;
-        letter-spacing: -1.5px !important;
+        font-size: clamp(28px, 9vw, 40px) !important;
+        letter-spacing: -1px !important;
+        line-height: 1.1 !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
     }
 
     .hero-typing-line {
@@ -2280,27 +2283,62 @@ footer {
         display: none;
     }
 
-    .tl-item {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: left;
-        margin-bottom: 80px;
-    }
-
+    /* --- JOURNEY MOBILE FIX --- */
     .journey-section {
-        padding: 40px 20px 60px;
+        padding: 40px 20px !important;
     }
 
+    /* --- JOURNEY MOBILE REBUILD (Left-Aligned) --- */
     .journey-track {
-        padding-left: 20px;
+        padding-left: 50px !important;
+        max-width: 100% !important;
+        margin: 0 !important;
     }
 
-    .journey-timeline-line {
-        left: 0;
+    .journey-timeline-line,
+    .journey-timeline-progress {
+        left: 25px !important;
+        transform: none !important;
     }
 
-    .tl-dot {
-        left: -33px;
+    .tl-checkpoint {
+        left: 25px !important;
+        transform: translate(-50%, -50%) !important;
+    }
+
+    .tl-item {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        text-align: left !important;
+        margin-bottom: 60px !important;
+        width: 100% !important;
+    }
+
+    .tl-content {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        padding: 0 !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+
+    .tl-content h3 {
+        font-size: 24px !important;
+        margin-bottom: 12px !important;
+        text-align: left !important;
+    }
+
+    .tl-content p {
+        font-size: 14px !important;
+        text-align: left !important;
+    }
+
+    .tl-image-area {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        aspect-ratio: 16/9 !important;
     }
 
     .bento-grid {
