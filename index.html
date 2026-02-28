@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thejas Rao — Backend Developer & Software Engineer</title>
+  <meta name="description"
+    content="Thejas Rao — Backend Developer based in Bengaluru. Building scalable systems, cloud infrastructure, and agentic workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+
+  <!-- Site Dim Overlay (click to close menu) -->
+  <div id="site-overlay" aria-hidden="true"></div>
+
+  <!-- ─── MENU SIDEBAR ─── -->
+  <div id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="menu-bg-image" aria-hidden="true"><img
+        src="https://framerusercontent.com/images/cs9Fyw9Sw4o3cwgMxVmyTi6Jh0.png?scale-down-to=2048&width=3802&height=1881"
+        alt=""></div>
+
+    <button class="menu-close-btn" id="menu-close" aria-label="Close menu">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+      </svg>
+      Close
+    </button>
+    <p class="menu-current-page">thejas-rao.dev / home</p>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="menu-socials">
+      <a href="https://www.linkedin.com/in/thejasprao/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+      <a href="https://github.com/thejasrao262003" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+          </path>
+        </svg>
+      </a>
+      <a href="mailto:thejasrao262003@gmail.com" aria-label="Email">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ─── SITE CONTENT WRAPPER (pushed by menu) ─── -->
+  <div id="site-content">
+
+    <!-- ─── NAV ─── -->
+    <nav>
+      <button class="nav-menu-btn" id="menu-btn" aria-label="Open menu">
+        <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+          <rect width="16" height="1.2" rx="0.6" fill="currentColor" />
+          <rect y="5.4" width="10" height="1.2" rx="0.6" fill="currentColor" />
+          <rect y="10.8" width="13" height="1.2" rx="0.6" fill="currentColor" />
+        </svg>
+        Menu
+      </button>
+      <a href="index.html" class="nav-logo">T.R.</a>
+    </nav>
+
+    <!-- ─── HERO ─── -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          <span class="dim">Hey, I'm </span><span class="bright">Thejas.</span>
+        </h1>
+        <p class="hero-typing-line" aria-live="polite">
+          <span class="prefix dim">I'm a&nbsp;</span><span class="typed-text" id="typed-role"></span><span
+            class="cursor-blink" aria-hidden="true"></span>
+        </p>
+        <p class="hero-subtext">
+          I enjoy building scalable backend systems, exploring cloud infrastructure,
+          and experimenting with automation and agentic workflows.
+        </p>
+      </div>
+
+      <div class="hero-image-area">
+        <div class="hero-image-container">
+          <div class="moving-border"></div>
+          <img src="assets/images/profile.png" alt="Thejas Rao" class="hero-profile-img">
+        </div>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <svg viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.75" y="0.75" width="18.5" height="26.5" rx="9.25" stroke="currentColor" stroke-width="1.5" />
+          <rect x="9" y="6" width="2" height="5" rx="1" fill="currentColor">
+            <animate attributeName="y" values="6;10;6" dur="1.8s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="1;0;1" dur="1.8s" repeatCount="indefinite" />
+          </rect>
+        </svg>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ─── FEATURED PROJECTS (Sticky white viewport, X-axis flip) ─── -->
+    <section id="proj-section" class="proj-section" aria-label="Featured projects">
+      <div class="proj-sticky">
+
+        <!-- Scrolling marquee background (text updated by JS per card) -->
+        <div class="proj-bg-marquee" aria-hidden="true">
+          <div class="proj-marquee-track" id="proj-marquee-track">AGRIPREDICT &nbsp;&nbsp; AGRIPREDICT &nbsp;&nbsp;
+            AGRIPREDICT &nbsp;&nbsp; AGRIPREDICT &nbsp;&nbsp; AGRIPREDICT &nbsp;&nbsp; AGRIPREDICT &nbsp;&nbsp;</div>
+        </div>
+
+        <!-- Section header -->
+        <div class="proj-header">
+          <h2>Selected Work</h2><sup>(5)</sup>
+        </div>
+
+        <!-- Single card — JS swaps content at 90° midpoint for "same card" flip feel -->
+        <div class="proj-deck" id="proj-deck">
+          <div class="proj-card" id="proj-card">
+            <div class="proj-card-image grad-agri" id="proj-card-image"></div>
+            <div class="proj-card-info">
+              <h3 class="proj-card-title" id="proj-card-title">AgriPredict V2</h3>
+              <p class="proj-card-desc" id="proj-card-desc"></p>
+              <div class="proj-card-tags tags" id="proj-card-tags">
+                <span class="tag">LangGraph</span><span class="tag">AWS</span><span class="tag">FastAPI</span><span
+                  class="tag">Event-driven</span>
+              </div>
+            </div>
+          </div>
+        </div><!-- /proj-deck -->
+
+        <!-- Counter & See-all -->
+        <div class="proj-counter"><span id="proj-current">1</span> / 5</div>
+        <a href="work.html" class="proj-see-all">See all work
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+
+      </div><!-- /proj-sticky -->
+    </section>
+
+    <!-- ─── SCROLL JOURNEY ─── -->
+    <section id="journey-section" class="journey-section" aria-label="Career journey milestones">
+      <div class="journey-header-top">
+        <h2>What I've <span>Built</span> &amp; What <span>Drives Me</span></h2>
+      </div>
+
+      <div class="journey-track" id="journey-track">
+        <div class="journey-timeline-line" aria-hidden="true"></div>
+        <div class="journey-timeline-progress" id="journey-progress" aria-hidden="true"></div>
+
+        <!-- Item 1 (Left Image, Right Text) -->
+        <div class="tl-item tl-left reveal">
+          <div class="tl-checkpoint"></div>
+          <div class="tl-image-area">
+            <img src="assets/images/what_ive_built/Scale.png" alt="Scale and Resilience Architecture">
+          </div>
+          <div class="tl-content">
+            <h3>Scale & Resilience</h3>
+            <p>Architected systems for high concurrency. Built contest backends handling 20k+ concurrent users and ~2000
+              RPS with sub-1% failure rates, validated through rigorous distributed Locust deployments.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 (Right Image, Left Text) -->
+        <div class="tl-item tl-right reveal">
+          <div class="tl-checkpoint"></div>
+          <div class="tl-image-area">
+            <img src="assets/images/what_ive_built/SQS LAMBDA.png" alt="AWS SQS and Lambda Architecture">
+          </div>
+          <div class="tl-content">
+            <h3>Asynchronous Workflows</h3>
+            <p>Deep focus on decoupled, event-driven architectures. Designed AWS SQS fan-out pipelines that orchestrate
+              concurrent LLM execution, enabling a 50× throughput gain in production data processing.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 (Left Image, Right Text) -->
+        <div class="tl-item tl-left reveal">
+          <div class="tl-checkpoint"></div>
+          <div class="tl-image-area">
+            <img src="assets/images/what_ive_built/LLM Workflow.png" alt="LLM Agentic Workflow">
+          </div>
+          <div class="tl-content">
+            <h3>Agentic Automation</h3>
+            <p>Exploring the intersection of AI and Infrastructure. Built modular MCP servers that allow LLMs to safely
+              navigate and control AWS environments, powering GitHub Copilot to execute complex programmatic tasks.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 (Right Image, Left Text) -->
+        <div class="tl-item tl-right reveal">
+          <div class="tl-checkpoint"></div>
+          <div class="tl-image-area">
+            <img src="assets/images/what_ive_built/Trekking.jpeg" alt="High Altitude Trekking">
+          </div>
+          <div class="tl-content">
+            <h3>Altitude & Perspective</h3>
+            <p>Off the screen, I spend time tracing map contours and climbing altitudes. High-altitude trekking clears
+              the headspace and resets the baseline for deep, focused work.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 (Left Image, Right Text) -->
+        <div class="tl-item tl-left reveal">
+          <div class="tl-checkpoint"></div>
+          <div class="tl-image-area">
+            <img src="assets/images/what_ive_built/Bike.png" alt="Long Distance Road Biking">
+          </div>
+          <div class="tl-content">
+            <h3>Endurance & Momentum</h3>
+            <p>Whether it's debugging a stubborn distributed system trace or pushing through the final miles of a
+              century
+              ride, endurance is the recurring theme. I like hard climbs — in code and in real life.</p>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  </section>
+
+  <!-- ─── SCROLL HIGHLIGHT QUOTE ─── -->
+  <section class="quote-section" id="quote-section" aria-label="Statement">
+    <div class="quote-container">
+      <h2 class="quote-text" id="quote-text">I love to inspire, because I know what it's like to be inspired. Seeing
+        design work and having fun, that's what it's all about.</h2>
+      <div class="quote-image-wrapper">
+        <div class="quote-placeholder-img"><img src="assets/images/BIO.png" alt="Quote"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE / WORKED WITH ─── -->
+  <section class="experience-section" aria-label="Work experience">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div class="section-header reveal">
+        <h2 class="section-title">Worked with</h2>
+        <sup class="section-count">(2)</sup>
+      </div>
+
+      <div class="exp-table" role="table">
+        <div class="exp-row reveal" role="row">
+          <div class="exp-company" role="cell">Aveva</div>
+          <div class="exp-role" role="cell">Software Engineering Intern</div>
+          <div class="exp-date" role="cell">Jun '24 — Jul '24</div>
+          <div class="exp-location" role="cell">Bengaluru, India</div>
+        </div>
+        <div class="exp-row reveal reveal-delay-1" role="row">
+          <div class="exp-company" role="cell">Alaiy Technovations</div>
+          <div class="exp-role" role="cell">Software Development Engineer</div>
+          <div class="exp-date" role="cell">Nov '24 — Present</div>
+          <div class="exp-location" role="cell">Bengaluru, India</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo-large">T.R.</div>
+
+      <div class="footer-col">
+        <h4>Credits</h4>
+        <p style="font-size: 16px; color: var(--text-primary);">© T.R. - 2026</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-social-logos">
+          <a href="https://www.linkedin.com/in/thejasprao/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="https://github.com/thejasrao262003" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+              </path>
+            </svg>
+          </a>
+          <a href="mailto:thejasrao262003@gmail.com" aria-label="Email">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="back-to-top-col">
+        <span class="back-to-top-text">Back to top</span>
+        <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+          aria-label="Scroll to top">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Thejas Rao — Bengaluru, India</span>
+      <span>Built with HTML, CSS & Vanilla JS</span>
+    </div>
+  </footer>
+
+  </div><!-- /site-content -->
+
+  <script src="main.js"></script>
+</body>
+
+</html>

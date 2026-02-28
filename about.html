@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Thejas Rao</title>
+    <meta name="description"
+        content="About Thejas Rao — Backend Developer from Bengaluru. Fascinated by systems, scale, and cloud architecture." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* ── About page extras ── */
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 48px 120px;
+        }
+
+        /* Profile photo placeholder */
+        .profile-photo-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(160deg, #141414 0%, #1e1e1e 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        /* Bento card for profile fills height */
+        .b-photo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Bio card */
+        .bio-text {
+            font-size: 14px;
+            color: var(--text-body);
+            line-height: 1.75;
+        }
+
+        .bio-text+.bio-text {
+            margin-top: 12px;
+        }
+
+        /* Skills overflow scroll on small */
+        .skills-grid {
+            max-height: 260px;
+            overflow-y: auto;
+        }
+
+        .skills-grid::-webkit-scrollbar {
+            width: 0;
+        }
+
+        /* Blogs card */
+        .blogs-card-inner {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Stack logos */
+        .tech-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .tech-logo-item {
+            font-size: 11px;
+            padding: 4px 10px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-dim);
+            transition: color var(--duration) var(--ease), border-color var(--duration) var(--ease);
+        }
+
+        .tech-logo-item:hover {
+            color: var(--text-primary);
+            border-color: var(--accent-solid);
+        }
+
+        /* Recognition section sits on dark bg */
+        .recognition-section {
+            border-top: 1px solid var(--border);
+            margin-top: 64px;
+        }
+
+        .recognition-section .section-header {
+            margin-bottom: 0;
+            padding-bottom: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                padding: 0 20px 80px;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="scroll-progress"></div>
+    <div id="cursor"></div>
+
+    <!-- Site Dim Overlay -->
+    <div id="site-overlay" aria-hidden="true"></div>
+
+    <!-- MENU SIDEBAR -->
+    <div id="menu-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <div class="menu-bg-image" aria-hidden="true"><img src="https://framerusercontent.com/images/cs9Fyw9Sw4o3cwgMxVmyTi6Jh0.png?scale-down-to=2048&width=3802&height=1881
+" alt="Tower"></div>
+        <button class="menu-close-btn" id="menu-close" aria-label="Close menu">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+            Close
+        </button>
+        <p class="menu-current-page">thejas-rao.dev / about</p>
+        <ul class="menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="menu-socials">
+            <a href="https://www.linkedin.com/in/thejasprao/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/thejasrao262003" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:thejasrao262003@gmail.com">Email</a>
+        </div>
+    </div>
+
+    <!-- SITE CONTENT WRAPPER -->
+    <div id="site-content">
+
+        <!-- NAV -->
+        <nav>
+            <button class="nav-menu-btn" id="menu-btn" aria-label="Open menu">
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                    <rect width="16" height="1.2" rx="0.6" fill="currentColor" />
+                    <rect y="5.4" width="10" height="1.2" rx="0.6" fill="currentColor" />
+                    <rect y="10.8" width="13" height="1.2" rx="0.6" fill="currentColor" />
+                </svg>
+                Menu
+            </button>
+            <a href="index.html" class="nav-logo">T.R.</a>
+        </nav>
+
+        <!-- HERO -->
+        <section class="page-hero" aria-label="About page introduction">
+            <canvas id="wave-canvas-about" aria-hidden="true"></canvas>
+            <div class="hero-glow" aria-hidden="true"></div>
+
+            <div class="hero-content">
+                <h1 class="hero-headline">
+                    <span class="dim">A page </span><span class="bright">About me.</span>
+                </h1>
+                <p class="hero-typing-line" aria-live="polite">
+                    <span class="prefix dim">I'm a&nbsp;</span><span class="typed-text" id="typed-about"></span><span
+                        class="cursor-blink" aria-hidden="true"></span>
+                </p>
+                <p class="hero-subtext">
+                    I'm fascinated by how systems scale, how infrastructure behaves under load,
+                    and how architectural decisions impact performance.
+                </p>
+            </div>
+        </section>
+
+        <!-- BENTO GRID -->
+        <div class="about-content">
+            <div class="section-header reveal" style="margin-bottom: 32px;">
+                <h2 class="section-title">The Details</h2>
+                <sup class="section-count">(6)</sup>
+            </div>
+
+            <div class="bento-grid">
+
+                <!-- Profile Card -->
+                <div class="bento-card b-photo reveal">
+                    <div class="profile-photo-placeholder" aria-hidden="true">👨‍💻</div>
+                    <div>
+                        <div class="location-chip">
+                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                <path
+                                    d="M5 1C3.34 1 2 2.34 2 4c0 2.25 3 5 3 5s3-2.75 3-5c0-1.66-1.34-3-3-3zm0 4.1A1.1 1.1 0 1 1 5 2.9a1.1 1.1 0 0 1 0 2.2z"
+                                    fill="currentColor" />
+                            </svg>
+                            Bengaluru, India
+                        </div>
+                        <div class="live-status">
+                            <div class="live-dot"></div>
+                            Building
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bio Card -->
+                <div class="bento-card b-bio reveal reveal-delay-1">
+                    <div class="bento-label">Me in Brief</div>
+                    <h3>Backend-focused engineer</h3>
+                    <p class="bio-text">I like building backend systems that don't break — and that actually move
+                        metrics.</p>
+                    <p class="bio-text" style="margin-top:12px;">Right now, I'm focused on backend engineering, complex
+                        systems, cloud infrastructure, and agentic workflows — the kind of problems where small
+                        architectural decisions have real consequences at scale.</p>
+                    <p class="bio-text" style="margin-top:12px;">My work has helped power systems handling 20k+
+                        concurrent users, reduced failure rates to under 1% during peak traffic, and accelerated
+                        parallel processing pipelines by up to 50x. I've contributed to infrastructure optimizations
+                        that improved resource utilization while sustaining reliability under load.</p>
+                    <p class="bio-text" style="margin-top:12px;">I care about clean abstractions, measurable impact, and
+                        systems that hold up in production — not just in theory.</p>
+                    <p class="bio-text" style="margin-top:12px;">When I'm not at a terminal, I'm usually at a trailhead
+                        or on a long bike ride. I like hard climbs — in code and in real life. I vibe code most of the UI/Frontend.</p>
+                </div>
+
+                <!-- Clock Card -->
+                <div class="bento-card b-clock reveal reveal-delay-2">
+                    <div class="bento-label">Local Time</div>
+                    <div id="live-clock" style="font-variant-numeric: tabular-nums;">--:--:--</div>
+                    <div class="timezone-label">IST — UTC+5:30 · Bengaluru</div>
+                </div>
+
+                <!-- Status Card -->
+                <div class="bento-card b-status reveal reveal-delay-3">
+                    <div class="bento-label">Current Focus</div>
+                    <h3 style="font-size: 15px; margin-bottom: 10px;">Open to opportunities</h3>
+                    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">Backend / Software Engineer
+                        roles. Full-time &amp; internships.</p>
+                    <div class="live-status" style="margin-top: 12px;">
+                        <div class="live-dot"></div>
+                        Available
+                    </div>
+                </div>
+
+                <!-- Skills Card -->
+                <div class="bento-card b-skills reveal">
+                    <div class="bento-label">Skills &amp; Tech Stack</div>
+                    <div class="skills-grid">
+                        <span class="tag">Python</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">Lambda</span>
+                        <span class="tag">ECS</span>
+                        <span class="tag">SQS</span>
+                        <span class="tag">EC2</span>
+                        <span class="tag">API Gateway</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">Redis</span>
+                        <span class="tag">LangChain</span>
+                        <span class="tag">LangGraph</span>
+                        <span class="tag">MCP</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Go (Learning)</span>
+                        <span class="tag">Celery</span>
+                        <span class="tag">Locust</span>
+                    </div>
+                </div>
+
+                <!-- Stats Card -->
+                <div class="bento-card b-stats reveal reveal-delay-1">
+                    <div class="bento-label">By the numbers</div>
+                    <div
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; height: 100%; align-content: center; padding-top: 8px;">
+                        <div>
+                            <div class="stat-number" data-count="20000" data-suffix="+">0+</div>
+                            <div class="stat-label">Peak concurrent users</div>
+                        </div>
+                        <div>
+                            <div class="stat-number" data-count="50" data-suffix="×">0×</div>
+                            <div class="stat-label">Pipeline throughput gain</div>
+                        </div>
+                        <div>
+                            <div class="stat-number" data-count="9" data-suffix=".06">0</div>
+                            <div class="stat-label">University CGPA</div>
+                        </div>
+                        <div>
+                            <div class="stat-number" data-count="1500" data-suffix="+">0+</div>
+                            <div class="stat-label">Blog article views</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blogs Card -->
+                <div class="bento-card b-blogs reveal">
+                    <div class="bento-label">Technical Writing</div>
+                    <h3>Published Blogs</h3>
+                    <div class="blogs-card-inner" style="margin-top: 16px;">
+                        <div>
+                            <div class="blog-item">
+                                <span class="blog-title">FastAPI Deployment on ECS + API Gateway</span>
+                                <span class="blog-views">~1.5K views</span>
+                            </div>
+                            <div class="blog-item">
+                                <span class="blog-title">Production Microservices Architecture Patterns</span>
+                                <span class="blog-views">~800 views</span>
+                            </div>
+                            <div class="blog-item">
+                                <span class="blog-title">Redis Internals &amp; Memory Model Deep Dive</span>
+                                <span class="blog-views">~600 views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech / Tools Card -->
+                <div class="bento-card b-tech reveal reveal-delay-1">
+                    <div class="bento-label">Tools I Use Daily</div>
+                    <div class="tech-logos">
+                        <span class="tech-logo-item">VS Code</span>
+                        <span class="tech-logo-item">Neovim</span>
+                        <span class="tech-logo-item">AWS Console</span>
+                        <span class="tech-logo-item">Postman</span>
+                        <span class="tech-logo-item">TablePlus</span>
+                        <span class="tech-logo-item">Obsidian</span>
+                        <span class="tech-logo-item">Figma</span>
+                        <span class="tech-logo-item">Linear</span>
+                    </div>
+                </div>
+
+            </div><!-- .bento-grid -->
+
+            <!-- RECOGNITION SECTION -->
+            <div class="recognition-section reveal" style="margin-top: 80px;">
+                <div class="section-header" style="padding-top: 64px; padding-bottom: 48px;">
+                    <h2 class="section-title">Recognition</h2>
+                    <sup class="section-count">(4)</sup>
+                </div>
+
+                <div role="table" aria-label="Awards and recognition">
+                    <div class="recognition-row reveal" role="row">
+                        <div class="recognition-award" role="cell">Valedictorian — School Captain</div>
+                        <div class="recognition-project" role="cell">Class of 2021</div>
+                        <div class="recognition-date" role="cell">2021</div>
+                        <div class="recognition-org" role="cell">Pre-University</div>
+                    </div>
+                    <div class="recognition-row reveal reveal-delay-1" role="row">
+                        <div class="recognition-award" role="cell">Hackathon Winner</div>
+                        <div class="recognition-project" role="cell">GDSC Override Hackathon</div>
+                        <div class="recognition-date" role="cell">2024</div>
+                        <div class="recognition-org" role="cell">GDSC</div>
+                    </div>
+                    <div class="recognition-row reveal reveal-delay-2" role="row">
+                        <div class="recognition-award" role="cell">Top-10 Finalist</div>
+                        <div class="recognition-project" role="cell">Hallathon</div>
+                        <div class="recognition-date" role="cell">2023</div>
+                        <div class="recognition-org" role="cell">Hallmark</div>
+                    </div>
+                    <div class="recognition-row reveal reveal-delay-3" role="row">
+                        <div class="recognition-award" role="cell">MRD Scholarship</div>
+                        <div class="recognition-project" role="cell">All Semesters — CGPA 9.06</div>
+                        <div class="recognition-date" role="cell">2021–25</div>
+                        <div class="recognition-org" role="cell">PES University</div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- .about-content -->
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-logo-large">T.R.</div>
+
+                <div class="footer-col">
+                    <h4>Credits</h4>
+                    <p style="font-size: 16px; color: var(--text-primary);">© T.R. - 2026</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="work.html">Work</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-social-logos">
+                        <a href="https://www.linkedin.com/in/thejasprao/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/thejasrao262003" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="mailto:thejasrao262003@gmail.com" aria-label="Email">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="back-to-top-col">
+                    <span class="back-to-top-text">Back to top</span>
+                    <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                        aria-label="Scroll to top">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="19" x2="12" y2="5"></line>
+                            <polyline points="5 12 12 5 19 12"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2025 Thejas Rao — Bengaluru, India</span>
+                <span>Built with HTML, CSS & Vanilla JS</span>
+            </div>
+        </footer>
+
+    </div><!-- /site-content -->
+
+    <script src="main.js"></script>
+</body>
+
+</html>
