@@ -2248,11 +2248,12 @@ footer {
     }
 
     .hero-headline {
-        font-size: clamp(28px, 9vw, 40px) !important;
-        letter-spacing: -1px !important;
+        font-size: clamp(24px, 8.5vw, 36px) !important;
+        letter-spacing: -0.8px !important;
         line-height: 1.1 !important;
         word-break: break-word !important;
         overflow-wrap: break-word !important;
+        max-width: 100% !important;
     }
 
     .hero-typing-line {
@@ -2302,7 +2303,8 @@ footer {
     }
 
     .tl-checkpoint {
-        left: 25px !important;
+        left: -25px !important;
+        /* Center on line which is 25px from track left, and item is 50px from track left */
         transform: translate(-50%, -50%) !important;
     }
 
