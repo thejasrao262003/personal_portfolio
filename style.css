@@ -73,6 +73,21 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Hide custom cursor & restore normal cursor on touch/mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    body {
+        cursor: auto;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    #cursor {
+        display: none !important;
+    }
+}
+
 /* Ensure background image is always visible behind site content */
 #site-content {
     background: transparent !important;
@@ -95,6 +110,7 @@ button {
     border: none;
     background: none;
 }
+
 
 /* ── Noise / Grain Overlay ── */
 body::before {
@@ -149,12 +165,16 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 1002;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
     mix-blend-mode: normal;
+    background: rgba(1, 1, 1, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-menu-btn {
@@ -579,6 +599,7 @@ h3 {
     gap: 0;
     margin-bottom: 32px;
     white-space: nowrap;
+    overflow: hidden;
 }
 
 .hero-typing-line .prefix {
@@ -2257,8 +2278,12 @@ footer {
     }
 
     .hero-typing-line {
-        font-size: clamp(24px, 8vw, 32px) !important;
-        letter-spacing: -1px !important;
+        font-size: clamp(20px, 6.5vw, 28px) !important;
+        letter-spacing: -0.5px !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        flex-wrap: wrap !important;
+        word-break: break-word !important;
     }
 
     .proj-footer {

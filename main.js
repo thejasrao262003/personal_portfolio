@@ -13,6 +13,12 @@
   const cursor = document.getElementById('cursor');
   if (!cursor) return;
 
+  // Don't run custom cursor on touch/mobile devices
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+    cursor.style.display = 'none';
+    return;
+  }
+
   let mx = -100, my = -100;
   let cx = -100, cy = -100;
   let raf;
